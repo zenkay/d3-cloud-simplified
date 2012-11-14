@@ -5,6 +5,7 @@ cloud = {
 		if(options.width == undefined) options.width = 300
 		if(options.height == undefined) options.height = 300
 		if(options.font == undefined) options.font = "Arial"
+		if(options.container == undefined) options.container = "body"
 		if(options.words == undefined) options.words = [{text: "This", size: 40}, {text: "is", size: 40}, {text: "an", size: 40}, {text: "Example", size: 40}]
 	
 		var fill = d3.scale.category20();
@@ -15,7 +16,7 @@ cloud = {
 		.font(options.font)
 		.fontSize(function(d) { return d.size; })
 		.on("end", function(words) {
-			d3.select("body").append("svg")
+			d3.select(options.container).append("svg")
 			.attr("width", options.width)
 			.attr("height", options.height)
 			.append("g")
